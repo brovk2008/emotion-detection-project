@@ -1,3 +1,6 @@
+# Question 10 answer
+# Flask deployment code
+
 """Flask application for Emotion Detection service."""
 from flask import Flask, request
 from EmotionDetection.emotion_detection import emotion_detector

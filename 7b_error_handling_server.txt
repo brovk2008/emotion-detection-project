@@ -1,0 +1,37 @@
+# Question 13 answer
+# Blank input handling
+
+# From server.py - Error handling section
+
+@app.route("/emotionDetector")
+def emotion_detector_route():
+    """
+    Emotion detection endpoint.
+
+    Query parameters:
+        textToAnalyze (str): Text to analyze for emotions
+
+    Returns:
+        str: Formatted response with emotion analysis or error message
+    """
+    # Get the text to analyze from query parameters
+    text_to_analyze = request.args.get("textToAnalyze", "")
+
+    # Call the emotion detector function
+    result = emotion_detector(text_to_analyze)
+
+    # ERROR HANDLING: Check if dominant_emotion is None (blank input or error)
+    if result["dominant_emotion"] is None:
+        return "Invalid text! Please try again!", 400
+
+    # Return successful response
+    return f"For the given statement, the system response is {result}"
+
+
+# Explanation of error handling:
+# 1. When textToAnalyze parameter is empty or blank, the emotion_detector function
+#    returns a dictionary with all values set to None
+# 2. The server checks if result["dominant_emotion"] is None
+# 3. If it is None, the server returns the error message "Invalid text! Please try again!"
+#    with HTTP status code 400
+# 4. Otherwise, the server returns the formatted response with emotion analysis

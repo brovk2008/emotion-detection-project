@@ -1,3 +1,6 @@
+# Question 12 answer
+# Error handling implementation
+
 """Emotion Detection module for Watson NLP service."""
 import requests
 
@@ -32,6 +35,7 @@ def emotion_detector(text_to_analyze):
     try:
         response = requests.post(url, json=payload, headers=headers, timeout=10)
 
+        # ERROR HANDLING: Handle HTTP 400 responses
         if response.status_code == 400:
             return {
                 "anger": None,
@@ -61,6 +65,7 @@ def emotion_detector(text_to_analyze):
             "sadness": emotions.get("sadness"),
             "dominant_emotion": dominant_emotion
         }
+    # ERROR HANDLING: Catch any request exceptions
     except requests.RequestException:
         return {
             "anger": None,

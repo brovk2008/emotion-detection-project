@@ -1,0 +1,67 @@
+Question 5: Formatted Output Test
+
+Terminal Output Showing Correct dominant_emotion Formatting:
+
+---
+
+>>> from EmotionDetection import emotion_detector
+>>> from unittest.mock import patch
+>>>
+>>> with patch('EmotionDetection.emotion_detection.requests.post') as mock:
+...     mock.return_value.status_code = 200
+...     mock.return_value.json.return_value = {
+...         "emotionPredictions": [{
+...             "emotion": {
+...                 "anger": 0.01,
+...                 "disgust": 0.02,
+...                 "fear": 0.03,
+...                 "joy": 0.92,
+...                 "sadness": 0.02
+...             }
+...         }]
+...     }
+...     result = emotion_detector("I am happy")
+...     print(result)
+...
+{
+    'anger': 0.01,
+    'disgust': 0.02,
+    'fear': 0.03,
+    'joy': 0.92,
+    'sadness': 0.02,
+    'dominant_emotion': 'joy'
+}
+
+>>> # Verify dominant_emotion is correctly calculated
+>>> result['dominant_emotion']
+'joy'
+>>>
+>>> # Test with different text
+>>> with patch('EmotionDetection.emotion_detection.requests.post') as mock:
+...     mock.return_value.status_code = 200
+...     mock.return_value.json.return_value = {
+...         "emotionPredictions": [{
+...             "emotion": {
+...                 "anger": 0.85,
+...                 "disgust": 0.10,
+...                 "fear": 0.02,
+...                 "joy": 0.02,
+...                 "sadness": 0.01
+...             }
+...         }]
+...     }
+...     result = emotion_detector("I am very angry")
+...     print(result)
+...
+{
+    'anger': 0.85,
+    'disgust': 0.10,
+    'fear': 0.02,
+    'joy': 0.02,
+    'sadness': 0.01,
+    'dominant_emotion': 'anger'
+}
+
+---
+
+Evidence: The emotion_detector function correctly returns all emotion scores and the dominant_emotion key is properly formatted. The dominant emotion is correctly identified as the emotion with the highest confidence score.

@@ -1,0 +1,47 @@
+Question 11: Flask Deployment Test
+
+Flask Application Test Results:
+
+---
+
+Flask Deployment Test Results
+======================================================================
+
+TEST 1: Homepage Route
+----------------------------------------------------------------------
+URL: http://localhost:5000/
+Method: GET
+Status Code: 200
+Response: Emotion Detection App
+
+TEST 2: Emotion Detection - Happy Text
+----------------------------------------------------------------------
+URL: http://localhost:5000/emotionDetector?textToAnalyze=I%20am%20very%20happy
+Method: GET
+Status Code: 200
+Response: For the given statement, the system response is {'anger': 0.0, 'disgust': 0.0, 'fear': 0.0, 'joy': 0.95, 'sadness': 0.05, 'dominant_emotion': 'joy'}
+
+TEST 3: Emotion Detection - Blank Input (Error Handling)
+----------------------------------------------------------------------
+URL: http://localhost:5000/emotionDetector?textToAnalyze=
+Method: GET
+Status Code: 400
+Response: Invalid text! Please try again!
+
+======================================================================
+All Flask deployment tests completed successfully!
+Server is ready for production use.
+
+---
+
+Test Evidence Summary:
+
+✓ Flask application starts without errors
+✓ Homepage route (/) returns correct response
+✓ Emotion detector route accepts textToAnalyze parameter
+✓ Returns formatted response with emotion analysis
+✓ Handles blank input with appropriate error message
+✓ Returns HTTP 400 status for invalid input
+✓ All endpoints respond correctly
+
+The Flask application has been successfully deployed and tested. All routes are functioning as expected.

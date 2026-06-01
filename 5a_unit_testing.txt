@@ -1,3 +1,6 @@
+# Question 8 answer
+# Unit tests submission
+
 """Unit tests for EmotionDetection module."""
 import unittest
 from unittest.mock import patch

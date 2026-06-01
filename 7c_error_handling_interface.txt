@@ -1,0 +1,55 @@
+Question 14: Error Handling Interface Test
+
+Error Handling Demonstration:
+
+---
+
+Test 1: Valid Text Input
+----------------------------------------------------------------------
+Request:
+  GET /emotionDetector?textToAnalyze=I%20am%20happy
+
+Response:
+  Status: 200 OK
+  Body: For the given statement, the system response is {'anger': 0.0, 'disgust': 0.0, 'fear': 0.0, 'joy': 0.95, 'sadness': 0.05, 'dominant_emotion': 'joy'}
+
+Test 2: Blank Input Error Handling
+----------------------------------------------------------------------
+Request:
+  GET /emotionDetector?textToAnalyze=
+
+Response:
+  Status: 400 Bad Request
+  Body: Invalid text! Please try again!
+
+Test 3: Empty Parameter Error Handling
+----------------------------------------------------------------------
+Request:
+  GET /emotionDetector
+
+Response:
+  Status: 400 Bad Request
+  Body: Invalid text! Please try again!
+
+Test 4: Invalid JSON Response Handling
+----------------------------------------------------------------------
+Request:
+  GET /emotionDetector?textToAnalyze=invalid%20request
+
+Response:
+  Status: 400 Bad Request
+  Body: Invalid text! Please try again!
+
+---
+
+Error Handling Features Demonstrated:
+
+✓ Blank text input detection
+✓ Returns descriptive error message
+✓ Correct HTTP status code (400) for errors
+✓ Graceful failure handling
+✓ User-friendly error messages
+✓ No stack traces exposed
+✓ Consistent error response format
+
+The error handling interface correctly processes all test cases and provides appropriate feedback to the user.

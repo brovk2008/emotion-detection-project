@@ -1,3 +1,6 @@
+# Question 4 answer
+# Output formatting implementation
+
 """Emotion Detection module for Watson NLP service."""
 import requests
 
@@ -45,14 +48,17 @@ def emotion_detector(text_to_analyze):
         response.raise_for_status()
         response_data = response.json()
 
+        # Extract emotion scores from the response
         emotions = response_data.get(
             "emotionPredictions", [{}]
         )[0].get("emotion", {})
 
+        # Calculate dominant emotion based on highest score
         dominant_emotion = (
             max(emotions, key=emotions.get) if emotions else None
         )
 
+        # Return formatted output with all emotion values and dominant emotion
         return {
             "anger": emotions.get("anger"),
             "disgust": emotions.get("disgust"),
@@ -62,6 +68,7 @@ def emotion_detector(text_to_analyze):
             "dominant_emotion": dominant_emotion
         }
     except requests.RequestException:
+        # Return None values if request fails
         return {
             "anger": None,
             "disgust": None,

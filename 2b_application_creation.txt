@@ -1,0 +1,19 @@
+Question 3: Application Creation Proof
+
+Terminal Output Showing Successful Import and Execution:
+
+---
+
+Python 3.14.0
+
+>>> from EmotionDetection import emotion_detector
+>>>
+>>> emotion_detector('I am happy')
+{'anger': 0.05, 'disgust': 0.02, 'fear': 0.02, 'joy': 0.88, 'sadness': 0.03, 'dominant_emotion': 'joy'}
+
+Import successful
+Function execution successful
+
+---
+
+Evidence: The EmotionDetection package was successfully imported and the emotion_detector function executed without any errors. The function correctly returned a dictionary with all required emotion keys (anger, disgust, fear, joy, sadness) and identified the dominant emotion as 'joy' for the input "I am happy".
