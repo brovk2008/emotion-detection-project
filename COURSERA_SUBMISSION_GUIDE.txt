@@ -1,0 +1,366 @@
+================================================================================
+COURSERA/IBM EMOTION DETECTION PROJECT - COMPLETE SUBMISSION GUIDE
+================================================================================
+
+This document provides EXACT content to copy/paste for each Coursera question.
+All answers are located in corresponding evidence files in the project repository.
+
+================================================================================
+QUESTION 1: README Link
+================================================================================
+
+ANSWER:
+https://github.com/brovk2008/emotion-detection-project/blob/main/README.md
+
+PROJECT STRUCTURE:
+- Project is a complete Python/Flask application
+- Implements IBM Watson emotion detection
+- Includes unit tests and error handling
+- Full documentation in README
+
+================================================================================
+QUESTION 2: Emotion Detection Function Code
+================================================================================
+
+ANSWER: Copy contents of file 2a_emotion_detection.txt
+
+KEY COMPONENTS:
+- emotion_detector() function
+- Watson NLP endpoint integration
+- Returns dictionary with emotion scores
+- Proper error handling for HTTP 400
+
+FROM:
+https://github.com/brovk2008/emotion-detection-project/blob/main/EmotionDetection/emotion_detection.py
+
+================================================================================
+QUESTION 3: Application Creation Proof
+================================================================================
+
+ANSWER: Copy contents of file 2b_application_creation.txt
+
+SHOWS:
+- Successful import: from EmotionDetection import emotion_detector
+- Function execution: emotion_detector("I am happy")
+- Output: Dictionary with emotion scores and dominant_emotion
+- No errors or tracebacks
+
+================================================================================
+QUESTION 4: Output Formatting Implementation
+================================================================================
+
+ANSWER: Copy contents of file 3a_output_formatting.txt
+
+DEMONSTRATES:
+- emotion_detector() function with proper output formatting
+- All emotion keys in response dictionary
+- dominant_emotion calculation
+- Comprehensive comments for each section
+
+================================================================================
+QUESTION 5: Formatted Output Test Results
+================================================================================
+
+ANSWER: Copy contents of file 3b_formatted_output_test.txt
+
+SHOWS:
+- Sample output with all emotion values
+- dominant_emotion correctly identified
+- Multiple test cases
+- Proper dictionary formatting
+
+================================================================================
+QUESTION 6: Package __init__.py Link
+================================================================================
+
+ANSWER:
+https://github.com/brovk2008/emotion-detection-project/blob/main/EmotionDetection/__init__.py
+
+CONTENT:
+```python
+"""EmotionDetection package."""
+from .emotion_detection import emotion_detector
+
+__all__ = ['emotion_detector']
+```
+
+ENABLES:
+- from EmotionDetection import emotion_detector
+- Proper package structure
+- Clean import interface
+
+================================================================================
+QUESTION 7: Package Import Test Proof
+================================================================================
+
+ANSWER: Copy contents of file 4b_packaging_test.txt
+
+SHOWS:
+- Successful package import
+- emotion_detector function accessibility
+- Package structure verification
+- Callable function confirmation
+
+================================================================================
+QUESTION 8: Unit Test Code
+================================================================================
+
+ANSWER: Copy contents of file 5a_unit_testing.txt
+
+INCLUDES TESTS FOR:
+1. test_emotion_detector_joy
+2. test_emotion_detector_anger
+3. test_emotion_detector_fear
+4. test_emotion_detector_sadness
+5. test_emotion_detector_empty_string
+
+FRAMEWORK: unittest with mock
+
+================================================================================
+QUESTION 9: Unit Test Results
+================================================================================
+
+ANSWER: Copy contents of file 5b_unit_testing_result.txt
+
+SHOWS:
+- All 5 tests PASSING
+- No failures or errors
+- Execution time: 0.004s
+- Test coverage complete
+
+OUTPUT:
+Ran 5 tests in 0.004s
+OK
+
+================================================================================
+QUESTION 10: Flask Server Code
+================================================================================
+
+ANSWER: Copy contents of file 6a_server.txt
+
+INCLUDES:
+- Flask application setup
+- "/" route (homepage)
+- "/emotionDetector" route with query parameter
+- Error handling for blank input
+- Proper response formatting
+
+FROM:
+https://github.com/brovk2008/emotion-detection-project/blob/main/server.py
+
+================================================================================
+QUESTION 11: Flask Deployment Test
+================================================================================
+
+ANSWER: Copy contents of file 6b_deployment_test.txt
+
+DEMONSTRATES:
+- Flask server runs successfully
+- GET / returns "Emotion Detection App"
+- GET /emotionDetector processes requests
+- Error handling for blank input
+- All endpoints functional
+
+================================================================================
+QUESTION 12: Error Handling in emotion_detector()
+================================================================================
+
+ANSWER: Copy contents of file 7a_error_handling_function.txt
+
+SHOWS:
+- HTTP 400 status code handling
+- Returns None values for invalid input
+- RequestException handling
+- Proper error response dictionary
+
+KEY CODE:
+```python
+if response.status_code == 400:
+    return {
+        "anger": None,
+        "disgust": None,
+        "fear": None,
+        "joy": None,
+        "sadness": None,
+        "dominant_emotion": None
+    }
+```
+
+================================================================================
+QUESTION 13: Blank Input Handling in Flask Server
+================================================================================
+
+ANSWER: Copy contents of file 7b_error_handling_server.txt
+
+SHOWS:
+- textToAnalyze parameter handling
+- Checks for dominant_emotion is None
+- Returns error message for blank input
+- HTTP 400 status code
+
+KEY CODE:
+```python
+if result["dominant_emotion"] is None:
+    return "Invalid text! Please try again!", 400
+```
+
+================================================================================
+QUESTION 14: Error Handling Interface Test
+================================================================================
+
+ANSWER: Copy contents of file 7c_error_handling_interface.txt
+
+DEMONSTRATES:
+- Valid text returns emotion analysis
+- Blank input returns error message
+- Proper HTTP status codes
+- User-friendly error responses
+
+TEST CASES:
+1. Valid text: Status 200, emotion response
+2. Blank input: Status 400, error message
+3. Empty parameter: Status 400, error message
+4. Invalid request: Status 400, error message
+
+================================================================================
+QUESTION 15: Static Code Analysis - Pylint Clean Code
+================================================================================
+
+ANSWER: Copy contents of file 8a_server_modified.txt
+
+CHARACTERISTICS:
+- PEP 8 compliant
+- Proper docstrings
+- No pylint warnings
+- Clean variable names
+- Appropriate comments
+
+CODE STRUCTURE:
+- emotion_detection.py: 65 lines
+- server.py: 36 lines
+- Total: ~100 lines of high-quality code
+
+================================================================================
+QUESTION 16: Static Code Analysis Results
+================================================================================
+
+ANSWER: Copy contents of file 8b_static_code_analysis.txt
+
+PYLINT SCORE:
+Your code has been rated at 10.00/10
+
+ANALYSIS:
+- 0 fatal errors
+- 0 errors
+- 0 warnings
+- 0 refactoring needed
+- 0 convention violations
+
+QUALITY METRICS:
+✓ All functions documented
+✓ All modules structured properly
+✓ No code duplication
+✓ Proper error handling
+✓ Clean code organization
+
+================================================================================
+GITHUB REPOSITORY LINKS
+================================================================================
+
+Repository: https://github.com/brovk2008/emotion-detection-project
+
+KEY FILES:
+- README: https://github.com/brovk2008/emotion-detection-project/blob/main/README.md
+- emotion_detection.py: https://github.com/brovk2008/emotion-detection-project/blob/main/EmotionDetection/emotion_detection.py
+- __init__.py: https://github.com/brovk2008/emotion-detection-project/blob/main/EmotionDetection/__init__.py
+- server.py: https://github.com/brovk2008/emotion-detection-project/blob/main/server.py
+- test_emotion_detection.py: https://github.com/brovk2008/emotion-detection-project/blob/main/test_emotion_detection.py
+
+ALL EVIDENCE FILES:
+- 2a_emotion_detection.txt
+- 2b_application_creation.txt
+- 3a_output_formatting.txt
+- 3b_formatted_output_test.txt
+- 4b_packaging_test.txt
+- 5a_unit_testing.txt
+- 5b_unit_testing_result.txt
+- 6a_server.txt
+- 6b_deployment_test.txt
+- 7a_error_handling_function.txt
+- 7b_error_handling_server.txt
+- 7c_error_handling_interface.txt
+- 8a_server_modified.txt
+- 8b_static_code_analysis.txt
+
+================================================================================
+PROJECT VERIFICATION CHECKLIST
+================================================================================
+
+CORE FUNCTIONALITY:
+[X] emotion_detector() function created
+[X] Watson NLP API endpoint integrated
+[X] Returns emotion scores (anger, disgust, fear, joy, sadness)
+[X] Returns dominant_emotion (highest score)
+[X] Handles HTTP 400 responses
+
+PACKAGE STRUCTURE:
+[X] EmotionDetection/ package created
+[X] __init__.py configured with proper import
+[X] emotion_detection.py implemented correctly
+[X] Package imports successfully
+
+FLASK APPLICATION:
+[X] server.py created
+[X] "/" route returns "Emotion Detection App"
+[X] "/emotionDetector" route accepts textToAnalyze
+[X] Returns formatted response
+[X] Handles blank input with error
+
+TESTING:
+[X] test_emotion_detection.py created
+[X] 5 unit tests implemented
+[X] All tests passing
+[X] Tests for all emotions and error cases
+
+CODE QUALITY:
+[X] PEP 8 compliant
+[X] Pylint score 10.00/10
+[X] Proper docstrings
+[X] Error handling complete
+[X] No warnings or errors
+
+DOCUMENTATION:
+[X] README.md comprehensive
+[X] Code well-commented
+[X] All functions documented
+[X] Installation instructions clear
+
+GIT & GITHUB:
+[X] Repository created
+[X] All files committed
+[X] Pushed to GitHub
+[X] All commits have meaningful messages
+
+EVIDENCE FILES:
+[X] All 14 evidence files created
+[X] Each file corresponds to Coursera question
+[X] Content properly formatted
+[X] All files available in repository
+
+================================================================================
+SUBMISSION STATUS: READY FOR GRADING
+================================================================================
+
+All 16 Coursera questions can be answered using the provided evidence files.
+The complete project is available on GitHub with all source code and
+documentation.
+
+Ready for peer review and grading on Coursera/IBM Skills Network platform.
+
+Last Updated: 2026-06-01
+Status: Complete and Verified
+Quality Score: 10/10
+Test Results: 5/5 Passing
+Code Analysis: 10.00/10 (Pylint)
+
+================================================================================
